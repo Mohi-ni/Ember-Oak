@@ -1,0 +1,330 @@
+/* ============ RESET & DESIGN TOKENS ============ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1c1512;
+  --paper: #faf6ef;
+  --gold: #c9a15a;
+  --gold-deep: #a9813f;
+  --wine: #6e2a35;
+  --slate: #6b5f54;
+  --line: #e3dcce;
+  --radius: 6px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background: var(--paper);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+body.loaded { opacity: 1; }
+body.fade-out { opacity: 0; }
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.container { width: 90%; max-width: 1180px; margin: 0 auto; }
+
+.section-title { font-size: clamp(1.9rem, 3.2vw, 2.5rem); margin-bottom: 14px; }
+.section-sub { color: var(--slate); max-width: 480px; margin: 0 auto 46px; }
+.section-title.center, .section-sub.center { text-align: center; margin-left: auto; margin-right: auto; }
+
+.eyebrow {
+  color: var(--gold-deep);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.25s ease;
+}
+.btn-primary { background: var(--gold); color: var(--ink); }
+.btn-primary:hover { background: var(--gold-deep); }
+.btn-outline-light { border-color: rgba(250,246,239,0.5); color: var(--paper); }
+.btn-outline-light:hover { background: var(--paper); color: var(--ink); }
+.btn-outline { border-color: var(--ink); color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--paper); }
+
+section { padding: 100px 0; }
+
+/* ============ PAGE HEADER ============ */
+.page-header {
+  padding: 170px 0 80px;
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+}
+.page-header .eyebrow { color: var(--gold); }
+.page-header h1 { font-size: clamp(2.1rem, 4vw, 3rem); margin-bottom: 12px; }
+.page-header p { color: #cabfae; max-width: 460px; margin: 0 auto; }
+.breadcrumb { margin-top: 20px; font-size: 0.82rem; color: #a89a85; }
+.breadcrumb span { color: var(--gold); }
+
+/* ============ NAVBAR ============ */
+.navbar {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: rgba(28, 21, 18, 0.9);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+.navbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--paper); }
+.logo span { color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a { font-weight: 500; font-size: 0.9rem; color: #d9d0c1; padding-bottom: 3px; border-bottom: 1.5px solid transparent; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { background: var(--gold); color: var(--ink) !important; padding: 10px 22px; border-radius: 2px; }
+.nav-cta:hover { background: var(--gold-deep); }
+.menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.menu-btn span { width: 24px; height: 2px; background: var(--paper); }
+
+/* ============ HERO — full-bleed image ============ */
+.hero {
+  position: relative;
+  height: 92vh;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(28,21,18,0.5) 0%, rgba(28,21,18,0.75) 100%);
+  z-index: 1;
+}
+.hero-content { position: relative; z-index: 2; color: var(--paper); max-width: 640px; padding: 0 20px; }
+.hero-content .eyebrow { color: var(--gold); }
+.hero-content h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); margin-bottom: 18px; }
+.hero-content p { color: #ded4c4; max-width: 480px; margin: 0 auto 34px; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* ============ TICKER STRIP ============ */
+.ticker-strip { background: var(--wine); padding: 16px 0; overflow: hidden; }
+.ticker-track { display: flex; width: max-content; gap: 16px; animation: scrollTicker 24s linear infinite; }
+.ticker-strip:hover .ticker-track { animation-play-state: paused; }
+.ticker-track span { color: #f3e6d8; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.03em; white-space: nowrap; text-transform: uppercase; }
+.ticker-track span:nth-child(even) { color: var(--gold); }
+@keyframes scrollTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ============ ABOUT ============ */
+.about-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: 70px; }
+.about-img img { border-radius: var(--radius); height: 460px; object-fit: cover; }
+.about-text h2 { font-size: clamp(1.9rem, 3.4vw, 2.4rem); margin-bottom: 20px; }
+.about-text p { color: var(--slate); margin-bottom: 32px; max-width: 480px; }
+.about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; border-top: 1px solid var(--line); padding-top: 28px; }
+.stat h3 { font-size: 2rem; color: var(--gold-deep); font-family: 'Playfair Display', serif; }
+.stat p { font-size: 0.8rem; color: var(--slate); margin-top: 4px; }
+
+/* ============ CHEF'S PICKS — bento ============ */
+.dishes { background: var(--ink); color: var(--paper); }
+.dishes .section-title, .dishes .section-sub { color: var(--paper); }
+.dishes .section-sub { color: #b6a993; }
+
+.dishes-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 230px; gap: 16px; }
+.dish-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.dish-card.featured { grid-column: span 2; grid-row: span 2; }
+.dish-card img { width: 100%; height: 100%; object-fit: cover; }
+.dish-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
+}
+.dish-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; z-index: 2; }
+.dish-info .badge { background: var(--gold); color: var(--ink); font-size: 0.7rem; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; display: inline-block; }
+.dish-info h3 { color: var(--paper); font-size: 1.15rem; }
+.dish-card.featured .dish-info h3 { font-size: 1.5rem; }
+.dish-info .price { color: var(--gold); font-weight: 600; font-size: 0.9rem; margin-top: 4px; }
+
+/* ============ MENU (menu.html) ============ */
+.menu-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 46px; justify-content: center; }
+.filter-pill {
+  padding: 10px 22px; border-radius: 999px; border: 1.5px solid var(--line);
+  background: none; font-size: 0.88rem; font-weight: 500; color: var(--slate); cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-pill:hover { border-color: var(--gold); color: var(--ink); }
+.filter-pill.active { background: var(--ink); border-color: var(--ink); color: var(--gold); }
+
+.menu-list { max-width: 780px; margin: 0 auto; }
+.menu-category { margin-bottom: 10px; }
+.menu-category-title { font-size: 1.3rem; margin: 40px 0 20px; color: var(--wine); }
+.menu-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; padding: 18px 0; border-bottom: 1px dashed var(--line);
+}
+.menu-item.hidden-by-filter { display: none; }
+.menu-item-name { font-weight: 600; }
+.menu-item-name .badge { background: var(--gold); color: var(--ink); font-size: 0.65rem; padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
+.menu-item-desc { color: var(--slate); font-size: 0.88rem; margin-top: 4px; max-width: 420px; }
+.menu-item-price { font-family: 'Playfair Display', serif; color: var(--gold-deep); font-size: 1.05rem; flex-shrink: 0; }
+
+/* ============ GALLERY ============ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 14px;
+}
+.gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+.gallery-grid .tall { grid-row: span 2; }
+.gallery-grid .wide { grid-column: span 2; }
+
+/* ============ REVIEWS ============ */
+.reviews { background: var(--paper); }
+.review-slider { max-width: 700px; margin: 0 auto; overflow: hidden; }
+.review-track { display: flex; transition: transform 0.5s ease; }
+.review-card { min-width: 100%; text-align: center; padding: 0 20px; }
+.stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 18px; letter-spacing: 4px; }
+.review-card p { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; margin-bottom: 20px; }
+.review-card h4 { color: var(--slate); font-weight: 500; font-size: 0.9rem; }
+.review-dots { display: flex; justify-content: center; gap: 10px; margin-top: 30px; }
+.review-dots span { width: 24px; height: 3px; background: var(--line); cursor: pointer; }
+.review-dots span.active { background: var(--gold); }
+
+/* ============ CTA BANNER ============ */
+.cta-banner { background: var(--wine); color: var(--paper); }
+.cta-banner .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+.cta-banner .cta-text { max-width: 460px; }
+.cta-banner h2 { font-size: 2rem; margin-bottom: 10px; }
+.cta-banner p { color: #e8cfd2; }
+
+/* ============ RESERVATION ============ */
+.reservation { background: var(--paper); }
+.reservation-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 70px; }
+.reservation-text h2 { font-size: clamp(1.9rem, 3.4vw, 2.3rem); margin-bottom: 18px; }
+.reservation-text p { color: var(--slate); margin-bottom: 24px; max-width: 380px; }
+.reservation-text ul li { padding: 8px 0; color: var(--slate); }
+.reservation-text ul li::before { content: "— "; color: var(--gold-deep); font-weight: 700; }
+
+.reservation-form { background: var(--ink); padding: 42px; border-radius: var(--radius); color: var(--paper); }
+.form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
+.form-group label { margin-bottom: 7px; font-weight: 500; font-size: 0.86rem; color: #d9d0c1; }
+.form-group input, .form-group select {
+  padding: 13px 14px; border: 1px solid #3a2f29; border-radius: var(--radius);
+  font-family: inherit; font-size: 0.95rem; background: #241a16; color: var(--paper);
+}
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--gold); }
+.error-msg { color: #e08383; font-size: 0.8rem; margin-top: 4px; min-height: 14px; }
+.form-submit { width: 100%; border: none; justify-content: center; margin-top: 8px; }
+
+.confirmation-card { background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: 42px; text-align: center; }
+.confirm-icon { width: 54px; height: 54px; border-radius: 50%; background: var(--gold); color: var(--ink); font-size: 1.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+.confirmation-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+.confirmation-card > p { color: #cabfae; margin-bottom: 28px; font-size: 0.95rem; }
+.confirm-details { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: left; border-top: 1px solid #3a2f29; border-bottom: 1px solid #3a2f29; padding: 24px 0; margin-bottom: 28px; }
+.confirm-details span { display: block; font-size: 0.78rem; color: #a89a85; margin-bottom: 4px; }
+.confirm-details strong { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold); }
+
+/* ============ FAQ ============ */
+.faq-list { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-question { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--ink); text-align: left; }
+.faq-question span { font-size: 1.3rem; color: var(--gold-deep); transition: transform 0.3s ease; flex-shrink: 0; margin-left: 20px; }
+.faq-item.open .faq-question span { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-answer p { color: var(--slate); padding-bottom: 22px; max-width: 620px; font-size: 0.95rem; }
+.faq-item.open .faq-answer { max-height: 200px; }
+
+/* ============ CONTACT ============ */
+.contact-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: center; }
+.contact-info h2 { margin-bottom: 24px; font-size: clamp(1.9rem, 3.4vw, 2.3rem); }
+.contact-info p { margin-bottom: 14px; color: var(--slate); }
+.hours-table { margin-top: 20px; border-top: 1px solid var(--line); }
+.hours-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+.hours-row span:first-child { color: var(--ink); font-weight: 500; }
+.hours-row span:last-child { color: var(--slate); }
+.contact-map iframe { border-radius: var(--radius); }
+
+/* ============ FOOTER ============ */
+.footer { background: var(--ink); color: #a89a85; padding: 70px 0 24px; }
+.footer-inner { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
+.footer-col h3 { color: var(--paper); margin-bottom: 12px; }
+.footer-col h3 span { color: var(--gold); }
+.footer-col h4 { color: var(--paper); margin-bottom: 16px; font-size: 0.95rem; }
+.footer-col a, .footer-col p { display: block; margin-bottom: 9px; font-size: 0.9rem; color: #a89a85; }
+.footer-col a:hover { color: var(--gold); }
+.footer-copy { font-size: 0.8rem; border-top: 1px solid #3a2f29; padding-top: 24px; color: #7c6f5f; }
+
+/* ============ FLOATING BUTTONS ============ */
+#backToTop {
+  position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--gold); color: var(--ink); border: none; font-size: 1.2rem; cursor: pointer;
+  display: none; align-items: center; justify-content: center; z-index: 999;
+}
+#backToTop.show { display: flex; }
+#backToTop:hover { background: var(--gold-deep); }
+
+.whatsapp-float {
+  position: fixed; bottom: 30px; left: 30px; width: 52px; height: 52px; border-radius: 50%;
+  background: #25d366; color: var(--paper); display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; box-shadow: 0 8px 22px rgba(37,211,102,0.4); z-index: 999; transition: transform 0.25s ease;
+}
+.whatsapp-float:hover { transform: scale(1.08); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .about-inner, .reservation-inner, .contact-inner { grid-template-columns: 1fr; }
+  .dishes-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+  .dish-card.featured { grid-column: span 2; grid-row: span 1; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid .wide { grid-column: span 2; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .nav-links {
+    position: fixed; top: 68px; left: 0; width: 100%; background: var(--ink);
+    flex-direction: column; padding: 24px 0; gap: 20px;
+    transform: translateY(-150%); transition: transform 0.3s ease;
+  }
+  .nav-links.active { transform: translateY(0); }
+  .menu-btn { display: flex; }
+  .dishes-grid, .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .dish-card.featured { grid-column: span 1; }
+  .dish-card img { height: 260px; }
+  .gallery-grid .tall, .gallery-grid .wide { grid-column: span 1; grid-row: span 1; }
+  .gallery-grid img { height: 220px; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); }
+  .cta-banner .container { flex-direction: column; align-items: flex-start; }
+  .menu-item { flex-direction: column; gap: 4px; }
+}
+
+.reservation-panel { width: 100%; }

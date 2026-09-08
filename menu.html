@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu — Ember & Oak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo">Ember <span>&</span> Oak</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html" class="active">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="reservation.html" class="nav-cta">Reserve a Table</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <p class="eyebrow">The Menu</p>
+    <h1>Fire-Cooked, Season by Season</h1>
+    <p>Our menu shifts with what's fresh — this is what's on it right now.</p>
+    <p class="breadcrumb">Home / <span>Menu</span></p>
+  </div>
+</section>
+
+<section class="menu-page">
+  <div class="container">
+    <div class="menu-filters">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="starters">Starters</button>
+      <button class="filter-pill" data-filter="mains">Mains</button>
+      <button class="filter-pill" data-filter="desserts">Desserts</button>
+      <button class="filter-pill" data-filter="drinks">Drinks</button>
+    </div>
+
+    <div class="menu-list">
+
+      <h3 class="menu-category-title">Starters</h3>
+      <div class="menu-item" data-category="starters">
+        <div>
+          <p class="menu-item-name">Heirloom Burrata</p>
+          <p class="menu-item-desc">Fresh burrata, charred tomato, basil oil, sourdough crisp.</p>
+        </div>
+        <p class="menu-item-price">₹520</p>
+      </div>
+      <div class="menu-item" data-category="starters">
+        <div>
+          <p class="menu-item-name">Charred Corn Chaat</p>
+          <p class="menu-item-desc">Smoked corn, tamarind, mint chutney, puffed rice.</p>
+        </div>
+        <p class="menu-item-price">₹340</p>
+      </div>
+      <div class="menu-item" data-category="starters">
+        <div>
+          <p class="menu-item-name">Wood-Fired Prawns</p>
+          <p class="menu-item-desc">Garlic butter, chili flake, charred lemon.</p>
+        </div>
+        <p class="menu-item-price">₹590</p>
+      </div>
+
+      <h3 class="menu-category-title">Mains</h3>
+      <div class="menu-item" data-category="mains">
+        <div>
+          <p class="menu-item-name">Wood-Fired Ribeye <span class="badge">Chef's Special</span></p>
+          <p class="menu-item-desc">28-day aged ribeye, roasted bone marrow, red wine jus.</p>
+        </div>
+        <p class="menu-item-price">₹1,450</p>
+      </div>
+      <div class="menu-item" data-category="mains">
+        <div>
+          <p class="menu-item-name">Truffle Mushroom Risotto</p>
+          <p class="menu-item-desc">Wild mushrooms, aged parmesan, black truffle oil.</p>
+        </div>
+        <p class="menu-item-price">₹680</p>
+      </div>
+      <div class="menu-item" data-category="mains">
+        <div>
+          <p class="menu-item-name">Tandoor-Smoked Chicken</p>
+          <p class="menu-item-desc">Charcoal-grilled, mint yogurt, saffron rice.</p>
+        </div>
+        <p class="menu-item-price">₹620</p>
+      </div>
+      <div class="menu-item" data-category="mains">
+        <div>
+          <p class="menu-item-name">Grilled Paneer Tikka Bowl</p>
+          <p class="menu-item-desc">Charred paneer, roasted vegetables, herbed quinoa.</p>
+        </div>
+        <p class="menu-item-price">₹480</p>
+      </div>
+
+      <h3 class="menu-category-title">Desserts</h3>
+      <div class="menu-item" data-category="desserts">
+        <div>
+          <p class="menu-item-name">Dark Chocolate Tart <span class="badge">Chef's Special</span></p>
+          <p class="menu-item-desc">70% cacao, sea salt, hazelnut crumble.</p>
+        </div>
+        <p class="menu-item-price">₹380</p>
+      </div>
+      <div class="menu-item" data-category="desserts">
+        <div>
+          <p class="menu-item-name">Burnt Basque Cheesecake</p>
+          <p class="menu-item-desc">Caramelized top, vanilla bean, berry compote.</p>
+        </div>
+        <p class="menu-item-price">₹340</p>
+      </div>
+
+      <h3 class="menu-category-title">Drinks</h3>
+      <div class="menu-item" data-category="drinks">
+        <div>
+          <p class="menu-item-name">Smoked Old Fashioned</p>
+          <p class="menu-item-desc">Bourbon, applewood smoke, orange bitters.</p>
+        </div>
+        <p class="menu-item-price">₹450</p>
+      </div>
+      <div class="menu-item" data-category="drinks">
+        <div>
+          <p class="menu-item-name">House Cold Brew</p>
+          <p class="menu-item-desc">18-hour steeped, served over ice.</p>
+        </div>
+        <p class="menu-item-price">₹220</p>
+      </div>
+      <div class="menu-item" data-category="drinks">
+        <div>
+          <p class="menu-item-name">Spiced Masala Chai</p>
+          <p class="menu-item-desc">House blend spices, slow-simmered.</p>
+        </div>
+        <p class="menu-item-price">₹150</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <h3>Ember <span>&</span> Oak</h3>
+      <p>Wood-fired plates, good coffee, and a table that feels like home.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reservation.html">Reserve a Table</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>+91 98450 11223</p>
+      <p>hello@emberandoak.in</p>
+      <p>Bhubaneswar, Odisha, India</p>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Ember & Oak. All rights reserved.</p>
+</footer>
+
+<a href="https://wa.me/919845011223" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank">💬</a>
+<button id="backToTop" aria-label="Back to top">↑</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

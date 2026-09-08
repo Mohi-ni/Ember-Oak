@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserve a Table — Ember & Oak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo">Ember <span>&</span> Oak</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="reservation.html" class="nav-cta active">Reserve a Table</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <p class="eyebrow">Reservation</p>
+    <h1>Save Your Table</h1>
+    <p>Takes less than a minute — we'll have your table ready when you arrive.</p>
+    <p class="breadcrumb">Home / <span>Reservation</span></p>
+  </div>
+</section>
+
+<section class="reservation" id="reservation">
+  <div class="container reservation-inner">
+    <div class="reservation-text">
+      <h2>Plan Your Visit</h2>
+      <p>Reservations are recommended on weekends and for parties of 5 or more. For same-day
+        bookings, call us directly at <strong>+91 98450 11223</strong>.</p>
+      <ul>
+        <li>Free cancellation up to 2 hours before</li>
+        <li>Private dining room available for groups</li>
+        <li>Live music every Friday evening</li>
+      </ul>
+    </div>
+
+    <div class="reservation-panel">
+      <form class="reservation-form" id="reservationForm" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name">
+          <span class="error-msg" id="nameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="10-digit phone number">
+          <span class="error-msg" id="phoneError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="guests">Party Size</label>
+          <select id="guests" name="guests">
+            <option value="">Select number of guests</option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="6">6 Guests</option>
+            <option value="8">8 Guests</option>
+            <option value="12">12+ Guests</option>
+          </select>
+          <span class="error-msg" id="guestsError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date">
+          <span class="error-msg" id="dateError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" id="time" name="time">
+          <span class="error-msg" id="timeError"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Reserve a Table</button>
+      </form>
+
+      <div class="confirmation-card" id="confirmationCard" hidden>
+        <div class="confirm-icon">✓</div>
+        <h3>Table Reserved</h3>
+        <p>Thanks, <strong id="confirmName"></strong> — see you soon! Here's your booking summary.</p>
+
+        <div class="confirm-details">
+          <div><span>Date & Time</span><strong id="confirmDate"></strong></div>
+          <div><span>Party Size</span><strong id="confirmGuests"></strong></div>
+          <div><span>Your Table</span><strong id="confirmTable"></strong></div>
+        </div>
+
+        <button class="btn btn-outline" id="bookAnotherBtn">Book Another Reservation</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <h3>Ember <span>&</span> Oak</h3>
+      <p>Wood-fired plates, good coffee, and a table that feels like home.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reservation.html">Reserve a Table</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>+91 98450 11223</p>
+      <p>hello@emberandoak.in</p>
+      <p>Bhubaneswar, Odisha, India</p>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Ember & Oak. All rights reserved.</p>
+</footer>
+
+<a href="https://wa.me/919845011223" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank">💬</a>
+<button id="backToTop" aria-label="Back to top">↑</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
