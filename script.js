@@ -189,7 +189,7 @@ if (!emailPattern.test(email.value.trim())) {
     document.getElementById("confirmTable").textContent = `${assignment.table} — ${assignment.area}`;
 
     form.hidden = true;
-    const response = await fetch("http://localhost:5000/api/reservations", {
+ const response = await fetch("https://ember-oak-af6k.vercel.app/api/reservations", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
