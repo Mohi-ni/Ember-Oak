@@ -139,29 +139,36 @@ function assignTable(guests) {
 if (form) {
   const confirmationCard = document.getElementById("confirmationCard");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => { 
     e.preventDefault();
     let isValid = true;
 
     const name = document.getElementById("name");
+    const email = document.getElementById("email");
     const phone = document.getElementById("phone");
     const guests = document.getElementById("guests");
     const date = document.getElementById("date");
     const time = document.getElementById("time");
 
     const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
     const phoneError = document.getElementById("phoneError");
     const guestsError = document.getElementById("guestsError");
     const dateError = document.getElementById("dateError");
     const timeError = document.getElementById("timeError");
 
-    [nameError, phoneError, guestsError, dateError, timeError].forEach((el) => (el.textContent = ""));
-
+    [nameError, emailError, phoneError, guestsError, dateError, timeError]
+  .forEach((el) => (el.textContent = ""));  
     if (name.value.trim().length < 3) { nameError.textContent = "Please enter your full name."; isValid = false; }
+     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+if (!emailPattern.test(email.value.trim())) {
+  emailError.textContent = "Enter a valid email address.";
+  isValid = false;
+}
     const phonePattern = /^[0-9]{10}$/;
     if (!phonePattern.test(phone.value.trim())) { phoneError.textContent = "Enter a valid 10-digit phone number."; isValid = false; }
-
+       
     if (guests.value === "") { guestsError.textContent = "Please select party size."; isValid = false; }
     if (date.value === "") { dateError.textContent = "Please choose a date."; isValid = false; }
     if (time.value === "") { timeError.textContent = "Please choose a time."; isValid = false; }
@@ -182,6 +189,28 @@ if (form) {
     document.getElementById("confirmTable").textContent = `${assignment.table} — ${assignment.area}`;
 
     form.hidden = true;
+    const response = await fetch("http://localhost:5000/api/reservations", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: name.value.trim(),
+    email: email.value.trim(),
+    phone: phone.value.trim(),
+    guests: guests.value,
+    date: date.value,
+    time: time.value
+  })
+});
+
+const result = await response.json();
+
+if (!response.ok) {
+  throw new Error(
+    result.message || "Reservation submission failed."
+  );
+}
     confirmationCard.hidden = false;
     if (typeof gsap !== "undefined") {
       gsap.from(confirmationCard, { opacity: 0, y: 16, duration: 0.5 });
