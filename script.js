@@ -250,3 +250,99 @@ if (document.querySelector(".about-stats")) {
     scrollTrigger: { trigger: ".about-stats", start: "top 85%" },
   });
 }
+// =========================================
+// EMBER & OAK CONTACT FORM
+// =========================================
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const phone = document.getElementById("contactPhone").value.trim();
+    const subject = document.getElementById("contactSubject").value.trim();
+    const message = document.getElementById("contactMessage").value.trim();
+
+    const nameError = document.getElementById("contactNameError");
+    const emailError = document.getElementById("contactEmailError");
+    const phoneError = document.getElementById("contactPhoneError");
+    const subjectError = document.getElementById("contactSubjectError");
+    const messageError = document.getElementById("contactMessageError");
+
+    nameError.textContent = "";
+    emailError.textContent = "";
+    phoneError.textContent = "";
+    subjectError.textContent = "";
+    messageError.textContent = "";
+
+    let isValid = true;
+
+    if (name.length < 3 || name.length > 100) {
+      nameError.textContent = "Name must be between 3 and 100 characters.";
+      isValid = false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email) || email.length > 150) {
+      emailError.textContent = "Please enter a valid email address.";
+      isValid = false;
+    }
+
+    if (phone.length < 10 || phone.length > 15) {
+      phoneError.textContent = "Phone number must be between 10 and 15 characters.";
+      isValid = false;
+    }
+
+    if (subject.length < 3 || subject.length > 150) {
+      subjectError.textContent = "Subject must be between 3 and 150 characters.";
+      isValid = false;
+    }
+
+    if (message.length < 10 || message.length > 2000) {
+      messageError.textContent = "Message must be between 10 and 2000 characters.";
+      isValid = false;
+    }
+
+    if (!isValid) {
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "https://ember-oak-af6k.vercel.app/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            subject,
+            message
+          })
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.message || "Something went wrong.");
+        return;
+      }
+
+      contactForm.reset();
+
+      document.getElementById("contactSuccess").hidden = false;
+
+    } catch (error) {
+      console.error("Contact form error:", error);
+      alert("Unable to connect to the server. Please try again.");
+    }
+  });
+}

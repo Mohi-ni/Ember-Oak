@@ -33,27 +33,141 @@
     <p class="breadcrumb">Home / <span>Contact</span></p>
   </div>
 </section>
+  <section class="contact" id="contact">
+  <div class="container">
 
-<section class="contact" id="contact">
-  <div class="container contact-inner">
-    <div class="contact-info">
-      <h2>Get in Touch</h2>
-      <p><strong>📍 Address:</strong> 14 Fireside Lane, Bhubaneswar, Odisha, India</p>
-      <p><strong>📞 Phone:</strong> +91 98450 11223</p>
-      <p><strong>✉️ Email:</strong> hello@emberandoak.in</p>
+    <div class="contact-top">
 
-      <div class="hours-table">
-        <div class="hours-row"><span>Mon – Thu</span><span>8:00 AM – 10:30 PM</span></div>
-        <div class="hours-row"><span>Fri – Sat</span><span>8:00 AM – 11:30 PM</span></div>
-        <div class="hours-row"><span>Sunday</span><span>9:00 AM – 10:00 PM</span></div>
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+
+        <p>
+          <strong>📍 Address:</strong>
+          14 Fireside Lane, Bhubaneswar, Odisha, India
+        </p>
+
+        <p>
+          <strong>📞 Phone:</strong>
+          +91 98450 11223
+        </p>
+
+        <p>
+          <strong>✉️ Email:</strong>
+          hello@emberandoak.in
+        </p>
+
+        <div class="hours-table">
+          <div class="hours-row">
+            <span>Mon – Thu</span>
+            <span>8:00 AM – 10:30 PM</span>
+          </div>
+
+          <div class="hours-row">
+            <span>Fri – Sat</span>
+            <span>8:00 AM – 11:30 PM</span>
+          </div>
+
+          <div class="hours-row">
+            <span>Sunday</span>
+            <span>9:00 AM – 10:00 PM</span>
+          </div>
+        </div>
       </div>
+
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29851.0!2d85.8245!3d20.2961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDE3JzQ2LjAiTiA4NcKwNDknMjguMiJF!5e0!3m2!1sen!2sin!4v1234567890"
+          width="100%"
+          height="280"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
     </div>
-    <div class="contact-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29851.0!2d85.8245!3d20.2961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDE3JzQ2LjAiTiA4NcKwNDknMjguMiJF!5e0!3m2!1sen!2sin!4v1234567890"
-        width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
+
+    <div class="contact-form-card">
+
+      <h2>Send Us a Message</h2>
+
+      <p class="contact-form-subtitle">
+        Have a question or want to know more? We'd love to hear from you.
+      </p>
+
+      <form id="contactForm">
+
+        <div class="form-group">
+          <label for="contactName">Full Name</label>
+          <input
+            type="text"
+            id="contactName"
+            name="name"
+            placeholder="Enter your full name"
+          >
+          <span class="error-msg" id="contactNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail">Email Address</label>
+          <input
+            type="email"
+            id="contactEmail"
+            name="email"
+            placeholder="Enter your email address"
+          >
+          <span class="error-msg" id="contactEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone">Phone Number</label>
+          <input
+            type="tel"
+            id="contactPhone"
+            name="phone"
+            placeholder="Enter your phone number"
+          >
+          <span class="error-msg" id="contactPhoneError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactSubject">Subject</label>
+          <input
+            type="text"
+            id="contactSubject"
+            name="subject"
+            placeholder="What would you like to ask?"
+          >
+          <span class="error-msg" id="contactSubjectError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea
+            id="contactMessage"
+            name="message"
+            rows="4"
+            placeholder="Write your message..."
+          ></textarea>
+          <span class="error-msg" id="contactMessageError"></span>
+        </div>
+
+        <button type="submit" class="btn">
+          Send Message
+        </button>
+
+      </form>
+
+      <div id="contactSuccess" hidden>
+        <h3>Message Sent Successfully!</h3>
+        <p>
+          Thank you for contacting Ember & Oak.
+          We have received your message and will get back to you soon.
+        </p>
+      </div>
+
     </div>
+
   </div>
 </section>
 

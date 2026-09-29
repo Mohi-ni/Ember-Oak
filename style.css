@@ -328,3 +328,262 @@ section { padding: 100px 0; }
 }
 
 .reservation-panel { width: 100%; }
+/* =========================================
+   EMBER & OAK CONTACT SECTION
+========================================= */
+
+.contact-top {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: stretch;
+  margin-bottom: 38px;
+}
+
+/* Contact information */
+
+.contact-info {
+  padding: 28px;
+  border-radius: 16px;
+  background: #fffaf4;
+  box-shadow: 0 8px 24px rgba(70, 45, 25, 0.08);
+}
+
+.contact-info h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.contact-info strong {
+  font-weight: 600;
+}
+
+/* Existing opening-hours table */
+
+.contact-info .hours-table {
+  margin-top: 22px;
+}
+
+.contact-info .hours-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 9px 0;
+}
+
+/* Map */
+
+.contact-map {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fffaf4;
+  box-shadow: 0 8px 24px rgba(70, 45, 25, 0.08);
+}
+
+.contact-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border: 0;
+}
+
+/* =========================================
+   SMALL CONTACT FORM
+========================================= */
+
+.contact-form-card {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 28px;
+  box-sizing: border-box;
+
+  background: #fffaf4;
+  border-radius: 16px;
+
+  box-shadow: 0 8px 24px rgba(70, 45, 25, 0.08);
+}
+
+.contact-form-card h2 {
+  margin-top: 0;
+  margin-bottom: 7px;
+  text-align: center;
+}
+
+.contact-form-subtitle {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.contact-form-card .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form-card label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 11px 13px;
+
+  border: 1px solid #d8c9b9;
+  border-radius: 7px;
+
+  background: #f3deb5;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-form-card input {
+  height: 43px;
+}
+
+.contact-form-card textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  outline: none;
+  border-color: #a46b3f;
+  box-shadow: 0 0 0 3px rgba(164, 107, 63, 0.12);
+}
+
+.contact-form-card input::placeholder,
+.contact-form-card textarea::placeholder {
+  opacity: 0.6;
+}
+
+.contact-form-card .error-msg {
+  display: block;
+  min-height: 17px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #b42318;
+}
+
+.contact-form-card .btn {
+  width: 100%;
+  margin-top: 5px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#contactSuccess {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 9px;
+  background: #f2f8f1;
+  border: 1px solid #c8ddc3;
+}
+
+#contactSuccess h3 {
+  margin: 0 0 6px;
+}
+
+#contactSuccess p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .contact-top {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-card {
+    max-width: 100%;
+  }
+
+  .contact-info .hours-row {
+    flex-wrap: wrap;
+  }
+
+}
+
+/* =========================================
+   EMBER & OAK CONTACT FORM - COLOR FIX
+========================================= */
+
+.contact-form-card {
+  background: #fff8ef;
+  border: 1px solid #e3d2bd;
+}
+
+.contact-form-card label {
+  color: #5a3d2b;
+}
+
+.contact-form-subtitle {
+  color: #6f5847;
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+  background: #ffffff;
+  color: #3f2a1e;
+  border: 1px solid #bfa58d;
+}
+
+.contact-form-card input::placeholder,
+.contact-form-card textarea::placeholder {
+  color: #8f7a69;
+  opacity: 1;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  background: #ffffff;
+  border-color: #9a6843;
+  box-shadow: 0 0 0 3px rgba(154, 104, 67, 0.15);
+}
+
+.contact-form-card .btn {
+  background: #7b4f32;
+  color: #ffffff;
+}
+
+.contact-form-card .btn:hover {
+  background: #5f3b26;
+}
+
+.contact-form-card .error-msg {
+  color: #b42318;
+}
+
+#contactSuccess {
+  background: #f4f8f1;
+  border-color: #c5d8bd;
+  color: #3f5138;
+}
